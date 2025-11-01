@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import mqtt from "mqtt";
 import { useNavigate } from "react-router";
+import logo from "../../assets/logo.png";
 
 export default function PlayGame() {
   const [isPressed, setIsPressed] = useState(false);
   const [client, setClient] = useState(null);
   const topic = "esp32/motor"; // sesuaikan dengan topic ESP32
   const navigate = useNavigate();
-
 
   // koneksi ke broker MQTT
   useEffect(() => {
@@ -87,13 +87,25 @@ export default function PlayGame() {
   };
   return (
     <div>
-      <div className="text-4xl font-bold text-white mb-8 absolute top-3 left-1/2 transform -translate-x-1/2">
+      {/* Header */}
+      <header className="w-full flex   p-4 absolute top-44 -right-44 rotate-90">
+        <div className="flex items-center space-x-2">
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-10 h-10 object-contain rounded-full"
+          />
+          <h1 className="text-white font-bold text-lg">IOT seulanga 2025</h1>
+        </div>
+      </header>
+
+      <div className="text-4xl font-bold text-white mb-8 absolute top-1/2 -right-72 transform -translate-x-1/2 rotate-90 ">
         <div>Control the RC Car</div>
       </div>
 
       {/* tombol back */}
-      <button onClick={()=> navigate("/")}>
-        <div className="border rounded-full h-10 w-10 flex justify-center items-center bg-white absolute top-4 right-5 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out">
+      <button onClick={() => navigate("/")}>
+        <div className=" rotate-90 border rounded-full h-10 w-10 flex justify-center items-center bg-white absolute bottom-4 right-5 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -122,7 +134,7 @@ export default function PlayGame() {
         onMouseUp={handlePressEndKlakson}
         onContextMenu={(e) => e.preventDefault()}
       >
-        <div className=" border rounded-full h-32 w-32 flex justify-center items-center bg-white  absolute top-30 right-10 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out">
+        <div className=" border rounded-full h-32 w-32 flex justify-center items-center bg-white  absolute bottom-30 right-10 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out rotate-90">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
             <path d="M525.2 82.9C536.7 88 544 99.4 544 112L544 528C544 540.6 536.7 552 525.2 557.1C513.7 562.2 500.4 560.3 490.9 552L444.3 511.3C400.7 473.2 345.6 451 287.9 448.3L287.9 544C287.9 561.7 273.6 576 255.9 576L223.9 576C206.2 576 191.9 561.7 191.9 544L191.9 448C121.3 448 64 390.7 64 320C64 249.3 121.3 192 192 192L276.5 192C338.3 191.8 397.9 169.3 444.4 128.7L491 88C500.4 79.7 513.9 77.8 525.3 82.9zM288 384L288 384.2C358.3 386.9 425.8 412.7 480 457.6L480 182.3C425.8 227.2 358.3 253 288 255.7L288 384z" />
           </svg>
@@ -137,7 +149,7 @@ export default function PlayGame() {
         onMouseUp={handlePressEndAtas}
         onContextMenu={(e) => e.preventDefault()}
       >
-        <div className=" border rounded-full h-32 w-32 flex justify-center items-center bg-white absolute top-30 left-20 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out">
+        <div className=" border rounded-full h-32 w-32 flex justify-center items-center bg-white absolute top-10 left-56 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out rotate-90">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="120"
@@ -157,7 +169,7 @@ export default function PlayGame() {
         onMouseUp={handlePressEndBawah}
         onContextMenu={(e) => e.preventDefault()}
       >
-        <div className=" border rounded-full h-32 w-32 flex justify-center items-center bg-white absolute top-64 left-20 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out rotate-x-180">
+        <div className="rotate-90 border rounded-full h-32 w-32 flex justify-center items-center bg-white absolute top-10 left-20 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out rotate-x-180">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="120"
@@ -177,7 +189,7 @@ export default function PlayGame() {
         onMouseUp={handlePressEndKiri}
         onContextMenu={(e) => e.preventDefault()}
       >
-        <div className=" border rounded-full h-32 w-32 flex justify-center items-center bg-white absolute top-64 right-30 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out -rotate-90">
+        <div className=" border rounded-full h-32 w-32 flex justify-center items-center bg-white absolute bottom-44 left-20 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out rotate-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="120"
@@ -197,7 +209,7 @@ export default function PlayGame() {
         onMouseUp={handlePressEndKanan}
         onContextMenu={(e) => e.preventDefault()}
       >
-        <div className=" border rounded-full h-32 w-32 flex justify-center items-center bg-white absolute top-64 -right-10 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out rotate-90">
+        <div className=" border rounded-full h-32 w-32 flex justify-center items-center bg-white absolute bottom-5 left-20 transform -translate-x-1/2 shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out rotate-180">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="120"

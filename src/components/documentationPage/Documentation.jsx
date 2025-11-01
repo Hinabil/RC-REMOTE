@@ -1,10 +1,22 @@
 import { useNavigate } from "react-router";
+import logo from "../../assets/logo.png";
 
 export default function Documentation() {
   const navigate = useNavigate();
 
   return (
     <>
+      {/* Header */}
+      <header className="w-full flex items-center justify-between p-4 absolute top-1 left-1">
+        <div className="flex items-center space-x-2">
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-10 h-10 object-contain rounded-full"
+          />
+          <h1 className="text-white font-bold text-lg">IOT seulanga 2025</h1>
+        </div>
+      </header>
       <section>
         <h2 className="mt-24 mb-10 text-center font-bold text-3xl text-amber-50">
           Documentation
@@ -35,7 +47,7 @@ export default function Documentation() {
         {/* <!-- Documentation --> */}
         <div className="container mx-auto px-6 mb-10 sm:flex sm:flex-wrap sm:gap-6 sm:justify-center ">
           {/* card 1 */}
-          <div className="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 sm:mb-0 md:w-80 lg:w-72 bg-amber-50 ">
+          <div className="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64  md:w-80 lg:w-72 bg-amber-50 ">
             <img
               src="/images/image6.jpg"
               alt="gambar"
@@ -53,7 +65,7 @@ export default function Documentation() {
           </div>
 
           {/* card 2 */}
-          <div className="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 sm:mb-0 md:w-80 lg:w-72 bg-amber-50">
+          <div className="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64  md:w-80 lg:w-72 bg-amber-50">
             <img
               src="/images/image1.jpg"
               alt="gambar"
@@ -71,7 +83,7 @@ export default function Documentation() {
           </div>
 
           {/* card 3 */}
-          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-amber-50">
+          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 mb-10 lg:w-72 bg-amber-50">
             <video
               src="/images/video2.mp4"
               // controls
@@ -93,7 +105,7 @@ export default function Documentation() {
           </div>
 
           {/* card 4 */}
-          <div className="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 sm:mb-0 md:w-80 lg:w-72 bg-amber-50">
+          <div className="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64  md:w-80 lg:w-72 bg-amber-50">
             <img
               src="/images/image3.jpg"
               alt="gambar"
@@ -112,7 +124,7 @@ export default function Documentation() {
           </div>
 
           {/* card 5 */}
-          <div className="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64 sm:mb-0 md:w-80 lg:w-72 bg-amber-50">
+          <div className="rounded-md shadow-lg overflow-hidden mb-10 sm:w-64  md:w-80 lg:w-72 bg-amber-50">
             <img
               src="/images/image4.jpg"
               alt="gambar"
@@ -131,7 +143,7 @@ export default function Documentation() {
           </div>
 
           {/* card 6 */}
-          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 sm:mb-0 lg:w-72 mb-10 bg-amber-50">
+          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80  lg:w-72 mb-10 bg-amber-50">
             <img
               src="/images/image5.jpg"
               alt="gambar"
@@ -150,7 +162,7 @@ export default function Documentation() {
           </div>
 
           {/* card 7 */}
-          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-amber-50">
+          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 mb-10 lg:w-72 bg-amber-50">
             <img
               src="/images/image2.jpg"
               alt="gambar"
@@ -169,7 +181,7 @@ export default function Documentation() {
           </div>
 
           {/* card 8 */}
-          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-amber-50">
+          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 mb-10 lg:w-72 bg-amber-50">
             <video
               src="/images/video1.mp4"
               // controls
@@ -191,7 +203,7 @@ export default function Documentation() {
           </div>
 
           {/* card 9 */}
-          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-amber-50">
+          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 mb-10 lg:w-72 bg-amber-50">
             <img
               src="/images/image7.jpg"
               alt="gambar"
@@ -210,7 +222,7 @@ export default function Documentation() {
           </div>
 
           {/* card 10 */}
-          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 sm:mb-0 lg:w-72 bg-amber-50">
+          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 mb-10 lg:w-72 bg-amber-50">
             <video
               src="/images/video3.mp4"
               // controls
@@ -226,6 +238,47 @@ export default function Documentation() {
               <p className="text-slate-600 text-sm">
                 Desain 3D RC car akhirnya berhasil diselesaikan! Hasilnya sesuai
                 harapan dan siap digunakan untuk tahap perakitan selanjutnya.
+              </p>
+            </div>
+          </div>
+
+          {/* card 11 */}
+          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 mb-10 lg:w-72 bg-amber-50">
+            <video
+              src="/images/video4.mp4"
+              // controls
+              autoPlay={true}
+              loop={true}
+              muted={true}
+              className="w-full object-cover h-[200px]"
+            />
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl text-slate-700 mb-2">
+                Lagi Ngerakit 3D Nih!
+              </div>
+              <p className="text-slate-600 text-sm">
+                Tim lagi seru-serunya ngerangkai desain 3D RC car. Sekarang kita
+                lagi nyobain bagian ban belakang — semoga pas dan makin keren
+                hasilnya!
+              </p>
+            </div>
+          </div>
+
+          {/* card 12 */}
+          <div className="rounded-md shadow-lg overflow-hidden sm:w-64 md:w-80 mb-10 lg:w-72 bg-amber-50">
+            <img
+              src="/images/image8.jpg"
+              alt="gambar"
+              className="w-full object-cover h-[200px] "
+            />
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl text-slate-700 mb-2">
+                Saatnya Ngesolder Rangkaian 3D!
+              </div>
+              <p className="text-slate-600 text-sm">
+                Kami lagi fokus di tahap penyolderan komponen untuk rangkaian 3D
+                RC car. Proses ini penting biar semua koneksi kuat, rapi, dan
+                siap lanjut ke tahap perakitan bodi.
               </p>
             </div>
           </div>

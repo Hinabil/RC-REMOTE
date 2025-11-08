@@ -152,3 +152,106 @@ void loop() {
   if (!client.connected()) reconnect();
   client.loop();
 }
+
+// ====== FUNGSI SERVO ======
+void servoKiri() {
+  Serial.println("↩️ Servo Kiri");
+  myServo.write(30);
+}
+
+void servoKanan() {
+  Serial.println("↪️ Servo Kanan");
+  myServo.write(150);
+}
+
+void servoTengah() {
+  Serial.println("⏺️ Servo Tengah");
+  myServo.write(90);
+}
+
+// ====== FUNGSI BUZZER ======
+void buzzerOn() {
+  Serial.println("🔊 Buzzer ON");
+  digitalWrite(buzzerPin, HIGH);
+}
+
+void buzzerOff() {
+  Serial.println("🔇 Buzzer OFF");
+  digitalWrite(buzzerPin, LOW);
+}
+
+// ====== SETUP WIFI ======
+void setup_wifi() {
+  delay(10);
+  Serial.println();
+  Serial.print("Menghubungkan ke WiFi: ");
+  Serial.println(ssid);
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\n✅ Terhubung ke WiFi!");
+  Serial.print("IP ESP32: ");
+  Serial.println(WiFi.localIP());
+}
+
+// ====== CALLBACK MQTT ======
+void callback(char* topic, byte* message, unsigned int length) {
+  String msg = "";
+  for (int i = 0; i < length; i++) msg += (char)message[i];
+  msg.trim();
+  Serial.println("Pesan diterima: " + msg);
+
+  if (msg == "maju") maju(255);
+  else if (msg == "mundur") mundur(255);
+  else if (msg == "stop") berhenti();
+  else if (msg == "kiri") servoKiri();
+  else if (msg == "kanan") servoKanan();
+  else if (msg == "tengah") servoTengah();
+  else if (msg == "buzzer_on") buzzerOn();
+  else if (msg == "buzzer_off") buzzerOff();
+}
+
+// ====== RECONNECT MQTT ======
+void reconnect() {
+  while (!client.connected()) {
+    Serial.print("Menghubungkan ke MQTT...");
+    if (client.connect("ESP32MotorClient")) {
+      client.subscribe(topic_sub);
+      Serial.println("✅ Terhubung ke MQTT!");
+    } else {
+      Serial.print("Gagal, rc=");
+      Serial.print(client.state());
+      Serial.println(" coba lagi dalam 2 detik");
+      delay(2000);
+    }
+  }
+}
+
+// ====== SETUP ======
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  pinMode(ENA, OUTPUT);
+  pinMode(ENB, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+
+  myServo.attach(servoPin);
+  myServo.write(90); // posisi awal tengah
+
+  setup_wifi();
+  client.setServer(mqtt_server, mqtt_port);
+  client.setCallback(callback);
+}
+
+// ====== LOOP ======
+void loop() {
+  if (!client.connected()) reconnect();
+  client.loop();
+}
